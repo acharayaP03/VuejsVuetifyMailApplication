@@ -4,13 +4,21 @@
       <slot name="icon"></slot>
     </i>
     <div class="details">
-      <h3 class="text-caption">
-        <slot name="heading"></slot>
-      </h3>
-      <slot></slot>
-    </div>
-  </v-container>
+        {{ testVar }}
+        <h3 class="text-caption">
+          <slot name="heading"></slot>
+        </h3>
+        <slot></slot>
+      </div>
+    </v-container>
+
 </template>
+<script lang="ts" setup
+>
+import { ref } from 'vue';
+const testVar = ref('tst message')
+
+</script>
 
 <style scoped>
 .item {
