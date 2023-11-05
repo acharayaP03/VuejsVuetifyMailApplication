@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
@@ -12,8 +13,15 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }, 
+  },
   server: {
-    port: 8080
-  }
+    port: 8080,
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    deps: {
+      inline: ['vuetify'],
+    },
+  },
 })
